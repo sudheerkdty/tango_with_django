@@ -16,9 +16,10 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from rango import views
+from tango_with_django_project.settings import STATIC_URL, MEDIA_ROOT
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
-    url(r'^rango/', include('rango.urls')),
-]
+    url(r'^rango/', include('rango.urls')),url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT, }),#for media urls to work
+    ] # + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #for media urls to work
