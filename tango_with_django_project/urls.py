@@ -22,5 +22,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
-    # url(r'^rango/', include('rango.urls')),url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT, }),#for media urls to work
+    url(r'^rango/', include('rango.urls'))
+    # ,url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT, }),#for media urls to work
     ]  + static(MEDIA_URL, document_root=MEDIA_ROOT) #for media urls to work
